@@ -202,6 +202,12 @@ const boletos = [
   {u:"VT 1304", v:2200.39, doc:"557922157", linha:"48190.00003 00495.890550 79221.570140 7 14990000220039"}
 ];
 
+boletos.sort((a, b) => {
+  const [pa, na] = a.u.split(' ');
+  const [pb, nb] = b.u.split(' ');
+  return pa.localeCompare(pb) || (parseInt(na, 10) - parseInt(nb, 10));
+});
+
 function brl(n) {
   return n.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
 }
