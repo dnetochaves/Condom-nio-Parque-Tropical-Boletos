@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boletos Julho 2026 - Pompeu</title>
+<style>
+  :root {
+    --primary: #1F4E78;
+    --primary-light: #2E75B6;
+    --bg: #F4F6F8;
+    --card-bg: #FFFFFF;
+    --border: #E0E4E8;
+    --text: #222;
+    --muted: #6B7280;
+    --success: #1a7f37;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    background: var(--primary);
+    color: #fff;
+    padding: 20px 16px 16px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+  }
+  header p {
+    margin: 2px 0;
+    font-size: 0.8rem;
+    color: #D6E4F0;
+  }
+  .summary {
+    max-width: 720px;
+    margin: -14px auto 12px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  .summary .total-val {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary);
+  }
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4px 12px 40px;
+  }
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0 14px;
+  }
+  .filter-bar input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .unidade {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--primary);
+  }
+  .valor {
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+  .meta {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .barcode-row {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .barcode-field {
+    flex: 1;
+    min-width: 0;
+    background: #F0F3F6;
+    border: 1px dashed #C7D0DA;
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-family: "Courier New", monospace;
+    font-size: 0.8rem;
+    word-break: break-all;
+    color: #333;
+  }
+  .copy-btn {
+    flex-shrink: 0;
+    background: var(--primary-light);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0 14px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .copy-btn:active {
+    transform: scale(0.97);
+  }
+  .copy-btn.copied {
+    background: var(--success);
+  }
+  footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+    padding: 10px 16px 30px;
+  }
+  @media (max-width: 400px) {
+    .barcode-row { flex-direction: column; }
+    .copy-btn { padding: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Boletos Julho 2026 — Condomínio Parque Tropical</h1>
+  <p>Pagador: Pompeu Fusco Angelico</p>
+  <p>Vencimento: 05/07/2026 &nbsp;•&nbsp; Banco 481-2</p>
+</header>
+
+<div class="summary">
+  <span>29 boletos</span>
+  <span class="total-val" id="totalVal">R$ 61.815,83</span>
+</div>
+
+<div class="container">
+  <div class="filter-bar">
+    <input type="text" id="search" placeholder="Buscar unidade...">
+  </div>
+
+  <div id="list"></div>
+</div>
+
+<footer>Toque em "Copiar" para copiar a linha digitável do boleto.</footer>
+
+<script>
+const boletos = [
+  {u:"FL 0604", v:1898.70, doc:"557920717", linha:"48190.00003 00495.890550 79207.170147 9 14990000189870"},
+  {u:"FL 1103", v:1720.27, doc:"557920745", linha:"48190.00003 00495.890550 79207.450143 1 14990000172027"},
+  {u:"FL 1401", v:1702.37, doc:"557920861", linha:"48190.00003 00495.890550 79208.610141 1 14990000170237"},
+  {u:"FL 1402", v:1928.59, doc:"557920862", linha:"48190.00003 00495.890550 79208.620140 2 14990000192859"},
+  {u:"JD 0102", v:2682.73, doc:"557920909", linha:"48190.00003 00495.890550 79209.090145 2 14990000268273"},
+  {u:"JD 0402", v:2603.39, doc:"557920967", linha:"48190.00003 00495.890550 79209.670144 6 14990000260339"},
+  {u:"JD 0404", v:2459.80, doc:"557920969", linha:"48190.00003 00495.890550 79209.690142 1 14990000245980"},
+  {u:"JD 1104", v:3054.60, doc:"557921036", linha:"48190.00003 00495.890550 79210.360149 1 14990000305460"},
+  {u:"JD 1304", v:2392.47, doc:"557921068", linha:"48190.00003 00495.890550 79210.680140 8 14990000239247"},
+  {u:"JD 1401", v:3307.14, doc:"557921069", linha:"48190.00003 00495.890550 79210.690149 1 14990000330714"},
+  {u:"LG 0703", v:2414.91, doc:"557921131", linha:"48190.00003 00495.890550 79211.310143 6 14990000241491"},
+  {u:"LG 1004", v:2529.37, doc:"557921157", linha:"48190.00003 00495.890550 79211.570142 9 14990000252937"},
+  {u:"LG 1402", v:3044.05, doc:"557921184", linha:"48190.00003 00495.890550 79211.840149 9 14990000304405"},
+  {u:"LU 1104", v:1953.67, doc:"557921293", linha:"48190.00003 00495.890550 79212.930147 1 14990000195367"},
+  {u:"LU 1403", v:1565.32, doc:"557921325", linha:"48190.00003 00495.890550 79213.250149 9 14990000156532"},
+  {u:"MR 0003", v:2510.07, doc:"557921328", linha:"48190.00003 00495.890550 79213.280146 5 14990000251007"},
+  {u:"MR 0103", v:1931.22, doc:"557921334", linha:"48190.00003 00495.890550 79213.340148 1 14990000193122"},
+  {u:"MR 1203", v:2042.68, doc:"557921496", linha:"48190.00003 00495.890550 79214.960142 1 14990000204268"},
+  {u:"MR 1204", v:1705.00, doc:"557921502", linha:"48190.00003 00495.890550 79215.020144 7 14990000170500"},
+  {u:"NT 1104", v:1833.68, doc:"557921704", linha:"48190.00003 00495.890550 79217.040140 8 14990000183368"},
+  {u:"NT 1404", v:1758.30, doc:"557921736", linha:"48190.00003 00495.890550 79217.360142 8 14990000175830"},
+  {u:"SL 0603", v:2000.38, doc:"557921896", linha:"48190.00003 00495.890550 79218.960148 8 14990000200038"},
+  {u:"SL 0903", v:2123.74, doc:"557921916", linha:"48190.00003 00495.890550 79219.160144 1 14990000212374"},
+  {u:"SL 1303", v:1684.47, doc:"557921945", linha:"48190.00003 00495.890550 79219.450149 1 14990000168447"},
+  {u:"VT 0003", v:1624.35, doc:"557921959", linha:"48190.00003 00495.890550 79219.590142 8 14990000162435"},
+  {u:"VT 0204", v:1821.31, doc:"557921980", linha:"48190.00003 00495.890550 79219.800145 4 14990000182131"},
+  {u:"VT 0504", v:1617.86, doc:"557922021", linha:"48190.00003 00495.890550 79220.210144 1 14990000161786"},
+  {u:"VT 1201", v:1705.00, doc:"557922128", linha:"48190.00003 00495.890550 79221.280146 7 14990000170500"},
+  {u:"VT 1304", v:2200.39, doc:"557922157", linha:"48190.00003 00495.890550 79221.570140 7 14990000220039"}
+];
+
+function brl(n) {
+  return n.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+}
+
+const listEl = document.getElementById('list');
+
+function render(filter) {
+  listEl.innerHTML = '';
+  const f = (filter || '').trim().toLowerCase();
+  boletos
+    .filter(b => b.u.toLowerCase().includes(f))
+    .forEach((b, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-top">
+          <span class="unidade">Unidade ${b.u}</span>
+          <span class="valor">${brl(b.v)}</span>
+        </div>
+        <div class="meta">Doc. ${b.doc} &nbsp;•&nbsp; Venc. 05/07/2026</div>
+        <div class="barcode-row">
+          <div class="barcode-field" id="code-${i}">${b.linha}</div>
+          <button class="copy-btn" data-idx="${i}">Copiar</button>
+        </div>
+      `;
+      listEl.appendChild(card);
+    });
+}
+
+render('');
+
+document.getElementById('search').addEventListener('input', e => render(e.target.value));
+
+listEl.addEventListener('click', async (e) => {
+  const btn = e.target.closest('.copy-btn');
+  if (!btn) return;
+  const idx = btn.getAttribute('data-idx');
+  const text = document.getElementById('code-' + idx).textContent.trim();
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  }
+  const original = btn.textContent;
+  btn.textContent = 'Copiado!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+    btn.textContent = original;
+    btn.classList.remove('copied');
+  }, 1500);
+});
+</script>
+
+</body>
+</html>
