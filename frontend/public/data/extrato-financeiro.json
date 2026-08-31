@@ -2,11 +2,11 @@
   "periodoInicio": "02/08/2026",
   "periodoFim": "31/08/2026",
   "saldoInicial": 124132.13,
-  "saldoFinal": 38039.43,
-  "variacao": -86092.7,
+  "saldoFinal": 68039.43,
+  "variacao": -56092.7,
   "totalCredito": 116146.52,
-  "totalDebito": -202239.22,
-  "qtdTransacoes": 138,
+  "totalDebito": -172239.22,
+  "qtdTransacoes": 136,
   "cobrancas": [
     {
       "pagador": "SAMUEL ANDRADE SOUSA DA SILVA",
@@ -260,14 +260,14 @@
       "total": -73000.0
     },
     {
-      "destinatario": "49.840.197 DMEVAL DA COSTA CHAVES NETO",
-      "qtd": 2,
-      "total": -27000.0
+      "destinatario": "INIS MASCARENHAS CHAVES",
+      "qtd": 1,
+      "total": -12000.0
     },
     {
-      "destinatario": "INIS MASCARENHAS CHAVES",
-      "qtd": 2,
-      "total": -27000.0
+      "destinatario": "49.840.197 DMEVAL DA COSTA CHAVES NETO",
+      "qtd": 1,
+      "total": -12000.0
     },
     {
       "destinatario": "José Carlos dos Santos",

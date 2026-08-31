@@ -22,12 +22,27 @@ def parse_valor(s):
     s = (s or "").strip()
     if not s:
         return None
+    # Asaas exporta ora em formato "americano" (124132.13), ora em formato
+    # brasileiro (68.039,43) na linha de Saldo Final. Se houver vírgula,
+    # tratamos como separador decimal brasileiro (removendo pontos de milhar).
+    if "," in s:
+        s = s.replace(".", "").replace(",", ".")
     return float(s)
 
 
+def sniff_delimiter(path):
+    """Asaas já exportou tanto com vírgula (campos entre aspas) quanto com
+    ponto e vírgula (sem aspas). Detecta pelo que aparece mais nas primeiras
+    linhas do arquivo."""
+    with open(path, encoding="utf-8-sig") as f:
+        sample = "".join(f.readline() for _ in range(10))
+    return ";" if sample.count(";") > sample.count(",") else ","
+
+
 def load_rows(path):
+    delimiter = sniff_delimiter(path)
     with open(path, newline="", encoding="utf-8-sig") as f:
-        reader = list(csv.reader(f))
+        reader = list(csv.reader(f, delimiter=delimiter))
 
     header_idx = None
     for i, row in enumerate(reader):
