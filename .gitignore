@@ -1,0 +1,3 @@
+# Extratos bancários brutos (dados financeiros sensíveis) — nunca versionar.
+# O dashboard consome apenas o resumo processado em frontend/public/data/extrato-financeiro.json.
+Extrato Asaas*.csv

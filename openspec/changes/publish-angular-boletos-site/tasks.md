@@ -19,7 +19,7 @@
 
 ## 4. Publicar e verificar no Railway
 
-- [ ] 4.1 Confirmar com o usuário que os arquivos gerados na raiz (passo 2.1) estão prontos para commit, e então commitar e dar push na branch usada pelo Railway (`main`), seguindo o fluxo já usado nas changes anteriores (perguntar antes de commitar/dar push)
+- [x] 4.1 Confirmar com o usuário que os arquivos gerados na raiz (passo 2.1) estão prontos para commit, e então commitar e dar push na branch usada pelo Railway (`main`), seguindo o fluxo já usado nas changes anteriores (perguntar antes de commitar/dar push)
 - [ ] 4.2 Pedir ao usuário para confirmar, pelo dashboard do Railway, que um novo deploy foi disparado após o push (esta sessão não tem acesso ao Railway do usuário para verificar isso diretamente)
 - [ ] 4.3 Pedir ao usuário para abrir o link publicado (`https://condom-nio-parque-tropical-boletos-production.up.railway.app`) e confirmar visualmente que a tela Angular de boletos aparece corretamente, sem erros, e que os dados batem com o mês esperado
 - [x] 4.4 Registrar no `README.md` da raiz que o link publicado agora serve o build do Angular, removendo a menção ao `index.html` estático como "site atual publicado", e documentando o fluxo de publicação (`scripts/publish-site.sh`) para futuras atualizações

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { BoletosPage } from './features/boletos/boletos-page';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  imports: [BoletosPage],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MatIconModule],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',

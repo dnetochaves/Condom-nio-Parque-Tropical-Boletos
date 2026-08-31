@@ -1,0 +1,364 @@
+{
+  "periodoInicio": "02/08/2026",
+  "periodoFim": "31/08/2026",
+  "saldoInicial": 124132.13,
+  "saldoFinal": 38039.43,
+  "variacao": -86092.7,
+  "totalCredito": 116146.52,
+  "totalDebito": -202239.22,
+  "qtdTransacoes": 138,
+  "cobrancas": [
+    {
+      "pagador": "SAMUEL ANDRADE SOUSA DA SILVA",
+      "qtd": 3,
+      "total": 11609.05
+    },
+    {
+      "pagador": "ADRIANO SAMPAIO SILVA",
+      "qtd": 2,
+      "total": 9941.99
+    },
+    {
+      "pagador": "RICARDO JOSÉ DE SOUSA FARIAS JUNIOR",
+      "qtd": 2,
+      "total": 8907.39
+    },
+    {
+      "pagador": "GUILHERME HENRIQUE TELES FERREIRA",
+      "qtd": 2,
+      "total": 8582.84
+    },
+    {
+      "pagador": "DANIEL MARQUES MEDEIROS PEREIRA",
+      "qtd": 2,
+      "total": 7755.1
+    },
+    {
+      "pagador": "PEDRO VIEIRA BARBOSA",
+      "qtd": 2,
+      "total": 7731.99
+    },
+    {
+      "pagador": "HELDER SILVA DE GÓES",
+      "qtd": 2,
+      "total": 7714.47
+    },
+    {
+      "pagador": "SILVIO CELLI FILHO",
+      "qtd": 2,
+      "total": 7647.86
+    },
+    {
+      "pagador": "LEILANE MAIOLINI MENDES",
+      "qtd": 2,
+      "total": 7216.22
+    },
+    {
+      "pagador": "SILVIO JOSE PIAUHY FALCAO",
+      "qtd": 2,
+      "total": 6989.57
+    },
+    {
+      "pagador": "ANDRE LUIZ DA SILVA LIRA",
+      "qtd": 2,
+      "total": 6918.95
+    },
+    {
+      "pagador": "ANTÔNIO FÁBIO DANTAS FILHO",
+      "qtd": 2,
+      "total": 6717.24
+    },
+    {
+      "pagador": "GUSTAVO MESSEDER DOS SANTOS DANTAS",
+      "qtd": 2,
+      "total": 6149.42
+    },
+    {
+      "pagador": "TATO GALVÃO MORENO",
+      "qtd": 1,
+      "total": 5686.34
+    },
+    {
+      "pagador": "MARIA DE FÁTIMA FIALHO ARAUJO CUNHA",
+      "qtd": 1,
+      "total": 5378.09
+    },
+    {
+      "pagador": "Adriano Moura",
+      "qtd": 1,
+      "total": 1200.0
+    }
+  ],
+  "condominioUnidades": [
+    {
+      "data": "05/08/2026",
+      "unidade": "0003 MAR",
+      "valor": -2138.46
+    },
+    {
+      "data": "06/08/2026",
+      "unidade": "0003 VENTO",
+      "valor": -1646.25
+    },
+    {
+      "data": "05/08/2026",
+      "unidade": "0103 MAR",
+      "valor": -1652.69
+    },
+    {
+      "data": "04/08/2026",
+      "unidade": "1004 LAGOA",
+      "valor": -2482.16
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "102 JARDIM",
+      "valor": -2336.6
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "1103 FLORES",
+      "valor": -1693.96
+    },
+    {
+      "data": "04/08/2026",
+      "unidade": "1104 JARDIM",
+      "valor": -2482.16
+    },
+    {
+      "data": "05/08/2026",
+      "unidade": "1104 LUA",
+      "valor": -1547.32
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "1104 NATUREZA",
+      "valor": -1620.79
+    },
+    {
+      "data": "06/08/2026",
+      "unidade": "1201 VENTO",
+      "valor": -1731.08
+    },
+    {
+      "data": "05/08/2026",
+      "unidade": "1203 MAR",
+      "valor": -1729.5
+    },
+    {
+      "data": "05/08/2026",
+      "unidade": "1204 MAR",
+      "valor": -1549.25
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "1303 SOL",
+      "valor": -1579.77
+    },
+    {
+      "data": "04/08/2026",
+      "unidade": "1304 JARDIM",
+      "valor": -2232.99
+    },
+    {
+      "data": "06/08/2026",
+      "unidade": "1304 VENTO",
+      "valor": -1731.08
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "1401 FLORES",
+      "valor": -1759.78
+    },
+    {
+      "data": "04/08/2026",
+      "unidade": "1401 JARDIM",
+      "valor": -3153.15
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "1402 FLORES",
+      "valor": -1607.12
+    },
+    {
+      "data": "04/08/2026",
+      "unidade": "1402 LAGOA",
+      "valor": -3033.15
+    },
+    {
+      "data": "05/08/2026",
+      "unidade": "1403 LUA",
+      "valor": -1547.32
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "1404 NATUREZA",
+      "valor": -1776.23
+    },
+    {
+      "data": "06/08/2026",
+      "unidade": "204 VENTO",
+      "valor": -1716.16
+    },
+    {
+      "data": "04/08/2026",
+      "unidade": "402 JARDIM",
+      "valor": -2482.16
+    },
+    {
+      "data": "04/08/2026",
+      "unidade": "404 JARDIM",
+      "valor": -2232.99
+    },
+    {
+      "data": "06/08/2026",
+      "unidade": "504 VENTO",
+      "valor": -1586.66
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "603 SOL",
+      "valor": -1635.43
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "604 FLORES",
+      "valor": -1759.78
+    },
+    {
+      "data": "04/08/2026",
+      "unidade": "703 LAGOA",
+      "valor": -2421.65
+    },
+    {
+      "data": "03/08/2026",
+      "unidade": "903 SOL",
+      "valor": -1963.67
+    }
+  ],
+  "outrosPagamentos": [
+    {
+      "data": "04/08/2026",
+      "descricao": "Pagamento de conta",
+      "valor": -275.9
+    },
+    {
+      "data": "19/08/2026",
+      "descricao": "Pagamento de conta - site anuncios 08/2026",
+      "valor": -216.0
+    },
+    {
+      "data": "27/08/2026",
+      "descricao": "Pagamento de conta - anuncios imobiliarios 082026",
+      "valor": -481.42
+    }
+  ],
+  "pixSaidas": [
+    {
+      "destinatario": "LORENA MARIA CIDADE LINS DE ALBUQUERQUE",
+      "qtd": 19,
+      "total": -73000.0
+    },
+    {
+      "destinatario": "49.840.197 DMEVAL DA COSTA CHAVES NETO",
+      "qtd": 2,
+      "total": -27000.0
+    },
+    {
+      "destinatario": "INIS MASCARENHAS CHAVES",
+      "qtd": 2,
+      "total": -27000.0
+    },
+    {
+      "destinatario": "José Carlos dos Santos",
+      "qtd": 4,
+      "total": -5806.0
+    },
+    {
+      "destinatario": "CARLOS ANTONIO SALES",
+      "qtd": 1,
+      "total": -3900.0
+    },
+    {
+      "destinatario": "Adriano Moura",
+      "qtd": 2,
+      "total": -2300.0
+    },
+    {
+      "destinatario": "MURILO DE SOUZA AMORIM",
+      "qtd": 1,
+      "total": -1000.0
+    },
+    {
+      "destinatario": "Romario Teles Freire",
+      "qtd": 1,
+      "total": -870.0
+    },
+    {
+      "destinatario": "LUCAS DE SOUZA PEREIRA",
+      "qtd": 2,
+      "total": -800.0
+    },
+    {
+      "destinatario": "64.062.874 JOAO PAULO CARVALHO MIRANDA",
+      "qtd": 2,
+      "total": -789.0
+    },
+    {
+      "destinatario": "Diego Almeida Dos Reis",
+      "qtd": 2,
+      "total": -450.0
+    },
+    {
+      "destinatario": "38.237.858 MARCELO SANTOS SOUZA",
+      "qtd": 1,
+      "total": -450.0
+    },
+    {
+      "destinatario": "EDINALDO SANTOS CRUZ",
+      "qtd": 1,
+      "total": -430.0
+    },
+    {
+      "destinatario": "ROBERT SILVA SANTOS",
+      "qtd": 2,
+      "total": -320.0
+    },
+    {
+      "destinatario": "Iure Kauan Dias Veloso da Silva",
+      "qtd": 1,
+      "total": -100.0
+    },
+    {
+      "destinatario": "Oriosvaldo da Conceição",
+      "qtd": 1,
+      "total": -30.0
+    }
+  ],
+  "taxas": {
+    "boleto": {
+      "qtd": 29,
+      "total": -57.71
+    },
+    "asaas": {
+      "qtd": 1,
+      "total": -99.9
+    },
+    "serasa": [
+      {
+        "data": "27/08/2026",
+        "tipo": "CPF",
+        "documento": "087.161.086-80",
+        "valor": -16.99
+      },
+      {
+        "data": "27/08/2026",
+        "tipo": "CNPJ",
+        "documento": "23.311.290/0001-90",
+        "valor": -16.99
+      }
+    ]
+  },
+  "outrosTipos": [],
+  "estornadas": []
+}

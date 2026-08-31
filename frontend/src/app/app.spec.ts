@@ -1,13 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter } from '@angular/router';
 import { App } from './app';
+import { routes } from './app.routes';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [provideHttpClient(), provideHttpClientTesting(), provideRouter(routes)],
     }).compileComponents();
   });
 
@@ -17,10 +19,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render the boletos page', () => {
+  it('should render the bottom navigation with both tabs', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('app-boletos-page')).toBeTruthy();
+    const items = compiled.querySelectorAll('.app-shell__nav-item');
+    expect(items.length).toBe(2);
   });
 });
