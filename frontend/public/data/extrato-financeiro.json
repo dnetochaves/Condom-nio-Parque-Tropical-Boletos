@@ -2,11 +2,11 @@
   "periodoInicio": "02/08/2026",
   "periodoFim": "31/08/2026",
   "saldoInicial": 124132.13,
-  "saldoFinal": 68039.43,
-  "variacao": -56092.7,
+  "saldoFinal": 69039.43,
+  "variacao": -55092.7,
   "totalCredito": 116146.52,
-  "totalDebito": -172239.22,
-  "qtdTransacoes": 136,
+  "totalDebito": -171239.22,
+  "qtdTransacoes": 135,
   "cobrancas": [
     {
       "pagador": "SAMUEL ANDRADE SOUSA DA SILVA",
@@ -283,11 +283,6 @@
       "destinatario": "Adriano Moura",
       "qtd": 2,
       "total": -2300.0
-    },
-    {
-      "destinatario": "MURILO DE SOUZA AMORIM",
-      "qtd": 1,
-      "total": -1000.0
     },
     {
       "destinatario": "Romario Teles Freire",

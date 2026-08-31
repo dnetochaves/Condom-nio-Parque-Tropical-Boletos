@@ -1,3 +1,6 @@
-# Extratos bancários brutos (dados financeiros sensíveis) — nunca versionar.
-# O dashboard consome apenas o resumo processado em frontend/public/data/extrato-financeiro.json.
-*[Ee]xtrato*.csv
+# Extratos bancários e planilhas financeiras brutas na raiz do repositório
+# (dados financeiros sensíveis) — nunca versionar. O dashboard consome
+# apenas o resumo processado em frontend/public/data/extrato-financeiro.json.
+/*.csv
+/*.xlsx
+/*.numbers
