@@ -9,18 +9,28 @@ O PDF segue um padrão de 2 páginas por unidade:
   - página seguinte: capa/envelope com "Unidade:" e "Vencimento:" em formato limpo.
 
 Uso:
-    python3 extract_boletos.py <caminho-para-pdf>
+    python3 extract_boletos.py <caminho-para-pdf> > frontend/public/data/boletos.json
 
-Saída (stdout):
-    1) uma linha de resumo (# N boletos | vencimento DD/MM/AAAA | total R$ ...)
-    2) o array `const boletos = [...]` pronto para colar no index.html
-    3) uma linha JSON final com {count, total, vencimento} para leitura programática
-
-Avisos de dados incompletos ou inconsistentes vão para stderr, não stdout.
+Saída:
+    stdout: o JSON final no formato consumido pelo app Angular
+      { mes, condominio, pagador, vencimento, banco,
+        boletos: [{ unidade, valor, documento, linhaDigitavel }] }
+    stderr: uma linha de resumo (# N boletos | vencimento DD/MM/AAAA | total R$ ...)
+      e avisos de dados incompletos ou inconsistentes.
 """
 import sys
 import re
 import json
+
+CONDOMINIO = "Condomínio Parque Tropical"
+PAGADOR = "Pompeu Fusco Angelico"
+BANCO = "481-2"
+
+MESES_PT = {
+    1: "Janeiro", 2: "Fevereiro", 3: "Março", 4: "Abril",
+    5: "Maio", 6: "Junho", 7: "Julho", 8: "Agosto",
+    9: "Setembro", 10: "Outubro", 11: "Novembro", 12: "Dezembro",
+}
 
 
 def extract(pdf_path):
@@ -90,6 +100,13 @@ def fmt_brl(v):
     return "R$ " + s.replace(",", "_").replace(".", ",").replace("_", ".")
 
 
+def venc_to_mes_e_iso(venc):
+    """'05/09/2026' -> ('Setembro 2026', '2026-09-05')"""
+    dia, mes_num, ano = venc.split('/')
+    mes_nome = MESES_PT.get(int(mes_num), mes_num)
+    return f"{mes_nome} {ano}", f"{ano}-{mes_num}-{dia}"
+
+
 def main():
     if len(sys.argv) != 2:
         print("Uso: python3 extract_boletos.py <caminho-para-pdf>", file=sys.stderr)
@@ -112,15 +129,27 @@ def main():
 
     total = sum(b["v"] for b in boletos)
     venc = sorted(vencimentos)[0] if vencimentos else None
+    mes_titulo, vencimento_iso = venc_to_mes_e_iso(venc) if venc else (None, None)
 
-    print(f"# {len(boletos)} boletos | vencimento {venc} | total {fmt_brl(total)}")
-    print()
-    print("const boletos = [")
-    for b in boletos:
-        print(f'  {{u:"{b["u"]}", v:{b["v"]:.2f}, doc:"{b["doc"]}", linha:"{b["linha"]}"}},')
-    print("];")
-    print()
-    print(json.dumps({"count": len(boletos), "total": round(total, 2), "vencimento": venc}, ensure_ascii=False))
+    print(f"# {len(boletos)} boletos | vencimento {venc} | total {fmt_brl(total)}", file=sys.stderr)
+
+    dados = {
+        "mes": mes_titulo,
+        "condominio": CONDOMINIO,
+        "pagador": PAGADOR,
+        "vencimento": vencimento_iso,
+        "banco": BANCO,
+        "boletos": [
+            {
+                "unidade": b["u"],
+                "valor": round(b["v"], 2),
+                "documento": b["doc"],
+                "linhaDigitavel": b["linha"],
+            }
+            for b in boletos
+        ],
+    }
+    print(json.dumps(dados, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

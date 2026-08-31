@@ -1,15 +1,17 @@
 ---
 name: atualizar-boletos-mensais
-description: Atualiza o index.html deste projeto (Condomínio Parque Tropical) com os boletos de um novo mês, a partir do PDF de boletos enviado pela administradora (ex.: "Boletos taxa condominial 08.2026 - permutante.pdf"). Use esta skill sempre que o usuário anexar ou referenciar um novo PDF de boletos do condomínio, ou pedir para "atualizar os boletos", "gerar/subir os boletos do mês", "atualizar o index.html com o novo boleto", trocar o vencimento/valores do mês, mesmo que não diga exatamente essas palavras. Só se aplica a este projeto — não usar em outros repositórios.
+description: Atualiza os dados de boletos deste projeto (Condomínio Parque Tropical) com os boletos de um novo mês, a partir do PDF de boletos enviado pela administradora (ex.: "Boletos taxa condominial 08.2026 - permutante.pdf"). Use esta skill sempre que o usuário anexar ou referenciar um novo PDF de boletos do condomínio, ou pedir para "atualizar os boletos", "gerar/subir os boletos do mês", "atualizar o site com o novo boleto", trocar o vencimento/valores do mês, mesmo que não diga exatamente essas palavras. Só se aplica a este projeto — não usar em outros repositórios.
 ---
 
 # Atualizar boletos mensais — Condomínio Parque Tropical
 
-Este projeto é uma página estática (`index.html`) que lista os boletos do mês
-de um condômino (Pompeu Fusco Angelico), um por unidade, com valor, número do
-documento e linha digitável copiável. Todo mês a administradora manda um PDF
-novo com os boletos daquele mês, e o `index.html` precisa ser atualizado para
-refletir os dados desse PDF.
+Este projeto é um app [Angular](https://angular.dev/) com [Angular Material](https://material.angular.dev/)
+que lista os boletos do mês de um condômino (Pompeu Fusco Angelico), um por
+unidade, com valor, número do documento e linha digitável copiável. Os dados
+que alimentam essa tela ficam em `frontend/public/data/boletos.json`. Todo mês
+a administradora manda um PDF novo com os boletos daquele mês, e esse JSON
+precisa ser atualizado para refletir os dados desse PDF — e o site publicado
+precisa ser republicado para que a atualização chegue aos moradores.
 
 O PDF é um lote gerado pelo banco: 2 páginas por unidade (a primeira com o
 "Recibo do Pagador" — valor, nosso número, número do documento e linha
@@ -23,60 +25,47 @@ formato limpo). O layout se repete mês a mês, então a extração é mecânica
    arquivos `Boletos taxa condominial*.pdf` (`ls -t` para pegar o mais
    recente) e confirme com o usuário qual usar se houver mais de um.
 
-2. **Rode o script de extração** deste skill sobre o PDF:
+2. **Rode o script de extração** deste skill sobre o PDF, redirecionando a
+   saída direto para o arquivo de dados do app:
    ```bash
-   python3 .claude/skills/atualizar-boletos-mensais/scripts/extract_boletos.py "<caminho-do-pdf>"
+   python3 .claude/skills/atualizar-boletos-mensais/scripts/extract_boletos.py "<caminho-do-pdf>" > frontend/public/data/boletos.json
    ```
    Se faltar a dependência, ele avisa para rodar `pip3 install pdfplumber` —
-   instale e rode de novo. A saída traz:
-   - uma linha de resumo com total de boletos, vencimento e valor total;
-   - o bloco `const boletos = [...]` já pronto, ordenado por prefixo da
-     unidade e depois por número (mesma ordenação que o `index.html` usa);
-   - uma linha JSON final `{"count": ..., "total": ..., "vencimento": ...}`.
+   instale e rode de novo. O script já escreve o JSON final no formato
+   `{ mes, condominio, pagador, vencimento, banco, boletos: [...] }` — não
+   edite esse arquivo manualmente. No stderr (visível no terminal) vem uma
+   linha de resumo com total de boletos, vencimento e valor total, além de
+   avisos sobre páginas incompletas ou vencimentos divergentes entre
+   unidades — leia-os antes de seguir; eles indicam que algo no PDF fugiu do
+   padrão esperado e vale checar manualmente antes de confiar no resultado.
 
-   Avisos sobre páginas incompletas ou vencimentos divergentes entre unidades
-   vão para stderr — leia-os antes de seguir; eles indicam que algo no PDF
-   fugiu do padrão esperado e vale checar manualmente antes de confiar no
-   resultado.
-
-3. **Confira a extração antes de editar.** O número de boletos normalmente é
-   29 (uma unidade fixa por mês). Se vier diferente, avise o usuário — pode
+3. **Confira a extração antes de publicar.** O número de boletos normalmente
+   é 29 (uma unidade fixa por mês). Se vier diferente, avise o usuário — pode
    ser unidade nova/removida da lista, ou um erro de extração — antes de
-   aplicar a mudança.
+   seguir. Valide também que o JSON é válido:
+   ```bash
+   node -e "JSON.parse(require('fs').readFileSync('frontend/public/data/boletos.json'))"
+   ```
 
-4. **Leia o `index.html` atual** para saber exatamente o que precisa ser
-   substituído (os valores mudam a cada mês, então não assuma os valores
-   antigos — confira o arquivo). Os pontos a atualizar são:
-   - `<title>Boletos <Mês> <Ano> - Pompeu</title>`
-   - `<h1>Boletos <Mês> <Ano> — Condomínio Parque Tropical</h1>`
-   - `<p>Vencimento: DD/MM/AAAA &nbsp;•&nbsp; Banco 481-2</p>`
-   - `<span>N boletos</span>` e `<span class="total-val" ...>R$ ...</span>`
-     dentro de `.summary`
-   - o array `const boletos = [...]` inteiro (substitua pelo bloco gerado
-     pelo script)
-   - a string `Venc. DD/MM/AAAA` dentro do template literal de `render()`
-     (é fixa por mês, igual ao cabeçalho)
+4. **Publique o site atualizado** rodando o script de publicação, que builda
+   o app Angular (já lendo o `boletos.json` atualizado) e copia o resultado
+   para a raiz do repositório, no lugar dos arquivos publicados
+   anteriormente:
+   ```bash
+   ./scripts/publish-site.sh
+   ```
 
-   Para o nome do mês em português, use a data de vencimento retornada pelo
-   script (mês/ano no formato `DD/MM/AAAA`):
-   `01 Janeiro, 02 Fevereiro, 03 Março, 04 Abril, 05 Maio, 06 Junho,
-   07 Julho, 08 Agosto, 09 Setembro, 10 Outubro, 11 Novembro, 12 Dezembro`.
+5. **Verifique o resultado.** Sirva a raiz do repositório localmente (ex.
+   `npx http-server .`) e abra no navegador da sessão para conferir
+   visualmente que a tela carrega com os novos valores, o resumo (contagem e
+   total) bate com o resumo do passo 2, e nenhum erro aparece no console.
 
-5. **Aplique as edições** com a ferramenta de edição de arquivo, não reescreva
-   o arquivo inteiro — só os trechos que mudam (estilo, estrutura e lógica de
-   busca/ordenação/cópia do `index.html` não devem ser tocados).
-
-6. **Verifique o resultado**: some os valores do array atualizado e confira
-   que bate com o total mostrado no resumo do script, e que o total exibido
-   no `.summary` do HTML foi atualizado. Se possível, abra o `index.html` no
-   navegador da sessão para conferir visualmente que os cartões renderizam
-   com os novos valores e nenhum erro aparece no console.
-
-7. **Não faça commit nem push automaticamente.** Depois de atualizar e
-   verificar, informe o que mudou (mês, vencimento, total, nº de boletos) e
-   pergunte se o usuário quer que você faça o commit — só rode `git commit`
-   / `git push` se ele confirmar, seguindo o mesmo padrão usado nas
-   atualizações anteriores deste projeto.
+6. **Não faça commit nem push automaticamente.** Depois de atualizar,
+   publicar e verificar, informe o que mudou (mês, vencimento, total, nº de
+   boletos) e pergunte se o usuário quer que você faça o commit — só rode
+   `git commit` / `git push` se ele confirmar. Lembre o usuário de que, após
+   o push, o Railway precisa terminar de reimplantar e ele deve conferir o
+   link publicado para confirmar que a atualização chegou ao ar.
 
 ## Notas sobre o formato do PDF
 
