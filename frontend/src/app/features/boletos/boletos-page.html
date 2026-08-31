@@ -1,0 +1,54 @@
+<mat-toolbar class="cabecalho">
+  <div class="cabecalho__conteudo">
+    @if (dados(); as d) {
+      <span class="cabecalho__titulo">{{ d.mes }} — {{ d.condominio }}</span>
+      <span class="cabecalho__info">Pagador: {{ d.pagador }}</span>
+      <span class="cabecalho__info">Vencimento: {{ formatarData(d.vencimento) }} &bull; Banco {{ d.banco }}</span>
+    } @else {
+      <span class="cabecalho__titulo">Carregando boletos…</span>
+    }
+  </div>
+</mat-toolbar>
+
+<div class="resumo">
+  <span>{{ totalBoletos() }} boletos</span>
+  <span class="resumo__total">{{ formatarMoeda(totalValor()) }}</span>
+</div>
+
+<main class="conteudo">
+  <mat-form-field appearance="outline" class="busca">
+    <mat-label>Buscar unidade</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput #campoBusca (input)="busca.set(campoBusca.value)" placeholder="Ex.: FL 0604" />
+  </mat-form-field>
+
+  @for (boleto of boletosFiltrados(); track boleto.documento) {
+    <mat-card appearance="outlined" class="boleto">
+      <mat-card-content>
+        <div class="boleto__topo">
+          <span class="boleto__unidade">Unidade {{ boleto.unidade }}</span>
+          <span class="boleto__valor">{{ formatarMoeda(boleto.valor) }}</span>
+        </div>
+        @if (dados(); as d) {
+          <div class="boleto__meta">Doc. {{ boleto.documento }} &bull; Venc. {{ formatarData(d.vencimento) }}</div>
+        }
+        <div class="boleto__linha-row">
+          <div class="boleto__linha">{{ boleto.linhaDigitavel }}</div>
+          <button
+            mat-flat-button
+            color="primary"
+            class="boleto__copiar"
+            [class.boleto__copiar--copiado]="copiadoId() === boleto.documento"
+            (click)="copiar(boleto)"
+          >
+            {{ copiadoId() === boleto.documento ? 'Copiado!' : 'Copiar' }}
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  } @empty {
+    <p class="vazio">Nenhum boleto encontrado para essa busca.</p>
+  }
+</main>
+
+<footer class="rodape">Toque em "Copiar" para copiar a linha digitável do boleto.</footer>

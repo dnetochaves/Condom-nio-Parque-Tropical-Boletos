@@ -6,7 +6,11 @@ O `index.html` na raiz deste repositório é o site estático publicado atualmen
 
 ## Novo frontend (em construção): `frontend/`
 
-O diretório `frontend/` contém um novo app [Angular](https://angular.dev/) (última versão estável, componentes standalone) com [Angular Material](https://material.angular.dev/) como biblioteca de componentes de UI. Esta stack ainda está em construção e **não substitui** o `index.html` atual — a migração da tela de boletos para Angular será feita em uma change futura.
+O diretório `frontend/` contém um novo app [Angular](https://angular.dev/) (última versão estável, componentes standalone) com [Angular Material](https://material.angular.dev/) como biblioteca de componentes de UI. Esta stack ainda está em construção e **não substitui** o `index.html` atual — a publicação do app Angular como o site ativo será feita em uma change futura.
+
+Já existe dentro do app uma tela de boletos (`frontend/src/app/features/boletos/`) que reproduz a funcionalidade do `index.html` atual — cabeçalho, resumo, busca por unidade, listagem e cópia da linha digitável — construída com componentes do Angular Material e layout mobile-first (pensada primeiro para celular, com sensação de aplicativo).
+
+Os dados exibidos nessa tela vêm de `frontend/public/data/boletos.json`, e não mais de HTML/JS embutido. **Limitação temporária**: a skill `atualizar-boletos-mensais` ainda só atualiza o `index.html`; até ela ser migrada (change futura), atualizar o mês exige editar os dois lugares manualmente — o `index.html` e o `frontend/public/data/boletos.json`.
 
 ### Pré-requisitos
 
