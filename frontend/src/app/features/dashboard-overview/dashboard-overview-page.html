@@ -1,0 +1,58 @@
+<mat-toolbar class="cabecalho">
+  <div class="cabecalho__conteudo">
+    <span class="cabecalho__titulo">Dashboard</span>
+    @if (vista(); as v) {
+      <span class="cabecalho__info">{{ v.boletosMes.mes }} · {{ v.boletosMes.condominio }}</span>
+    } @else {
+      <span class="cabecalho__info">Carregando dados…</span>
+    }
+  </div>
+</mat-toolbar>
+
+@if (vista(); as v) {
+  <main class="conteudo">
+    <section class="kpis-grid">
+      <mat-card class="kpi" appearance="outlined">
+        <span class="kpi__label">Boletos do mês</span>
+        <span class="kpi__valor">{{ v.kpis.qtdBoletos }}</span>
+      </mat-card>
+      <mat-card class="kpi" appearance="outlined">
+        <span class="kpi__label">Valor total de boletos</span>
+        <span class="kpi__valor">{{ brl(v.kpis.valorBoletos) }}</span>
+      </mat-card>
+      <mat-card class="kpi kpi--positivo" appearance="outlined">
+        <span class="kpi__label">Total recebido no período</span>
+        <span class="kpi__valor">{{ brl(v.kpis.totalRecebido) }}</span>
+      </mat-card>
+      <mat-card class="kpi" appearance="outlined">
+        <span class="kpi__label">Taxas da plataforma</span>
+        <span class="kpi__valor">{{ brl(v.kpis.totalTaxas) }}</span>
+      </mat-card>
+    </section>
+
+    <section class="grafico">
+      <h2 class="grafico__titulo">Repasses por unidade</h2>
+      @if (v.repassesPorUnidade.length) {
+        <div class="grafico__barras">
+          @for (item of v.repassesPorUnidade; track item.unidade) {
+            <div class="barra">
+              <div class="barra__cabecalho">
+                <span class="barra__rotulo">{{ item.unidade }}</span>
+                <span class="barra__valor">{{ brl(item.valor) }}</span>
+              </div>
+              <div class="barra__trilha">
+                <div class="barra__preenchimento" [style.width.%]="percentual(item.valor, v.maiorValor)"></div>
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        <p class="grafico__vazio">Nenhum repasse por unidade registrado neste período.</p>
+      }
+    </section>
+  </main>
+} @else {
+  <main class="conteudo conteudo--carregando">
+    <p>Carregando dados…</p>
+  </main>
+}

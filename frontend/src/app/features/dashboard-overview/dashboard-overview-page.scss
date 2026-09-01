@@ -1,0 +1,132 @@
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.cabecalho {
+  height: auto;
+  padding: 12px 16px 14px;
+  background: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+
+.cabecalho__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.cabecalho__titulo {
+  font: var(--mat-sys-title-medium);
+}
+
+.cabecalho__info {
+  font: var(--mat-sys-body-small);
+  opacity: 0.85;
+}
+
+.conteudo {
+  padding: 12px 12px 24px;
+}
+
+.conteudo--carregando {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.kpis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 12px !important;
+}
+
+.kpi__label {
+  font: var(--mat-sys-body-small);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.kpi__valor {
+  font: var(--mat-sys-headline-small);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.kpi--positivo .kpi__valor {
+  color: var(--mat-sys-tertiary);
+}
+
+.grafico__titulo {
+  font: var(--mat-sys-title-medium);
+  margin: 0 0 12px;
+}
+
+.grafico__vazio {
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-medium);
+}
+
+.grafico__barras {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.barra {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.barra__cabecalho {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font: var(--mat-sys-body-medium);
+}
+
+.barra__rotulo {
+  overflow-wrap: anywhere;
+}
+
+.barra__valor {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.barra__trilha {
+  height: 10px;
+  border-radius: 6px;
+  background: var(--mat-sys-surface-container-high);
+  overflow: hidden;
+}
+
+.barra__preenchimento {
+  height: 100%;
+  border-radius: 6px;
+  background: var(--mat-sys-primary);
+}
+
+@media (min-width: 600px) {
+  .conteudo {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .kpis-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

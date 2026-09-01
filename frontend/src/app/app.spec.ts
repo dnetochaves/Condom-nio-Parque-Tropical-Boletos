@@ -19,11 +19,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render the bottom navigation with both tabs', () => {
+  it('should render the bottom navigation with all three tabs', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     const items = compiled.querySelectorAll('.app-shell__nav-item');
-    expect(items.length).toBe(2);
+    expect(items.length).toBe(3);
   });
 });
