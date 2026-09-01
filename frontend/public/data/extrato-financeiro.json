@@ -11,333 +11,936 @@
     {
       "pagador": "SAMUEL ANDRADE SOUSA DA SILVA",
       "qtd": 3,
-      "total": 11609.05
+      "total": 11609.05,
+      "transacoes": [
+        {
+          "data": "10/08/2026",
+          "valor": 2725.65,
+          "tipoLancamento": "CONDOMINIO REF. 08/2026"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": 6169.49,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": 2713.91,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "ADRIANO SAMPAIO SILVA",
       "qtd": 2,
-      "total": 9941.99
+      "total": 9941.99,
+      "transacoes": [
+        {
+          "data": "20/08/2026",
+          "valor": 7405.0,
+          "tipoLancamento": "ALUGUEL REF. 08/2026"
+        },
+        {
+          "data": "20/08/2026",
+          "valor": 2536.99,
+          "tipoLancamento": "CONDOMINIO REF. 08/2026"
+        }
+      ]
     },
     {
       "pagador": "RICARDO JOSÉ DE SOUSA FARIAS JUNIOR",
       "qtd": 2,
-      "total": 8907.39
+      "total": 8907.39,
+      "transacoes": [
+        {
+          "data": "03/08/2026",
+          "valor": 6005.0,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": 2902.39,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "GUILHERME HENRIQUE TELES FERREIRA",
       "qtd": 2,
-      "total": 8582.84
+      "total": 8582.84,
+      "transacoes": [
+        {
+          "data": "28/08/2026",
+          "valor": 6045.85,
+          "tipoLancamento": "ALUGUEL REF. 08/2026"
+        },
+        {
+          "data": "28/08/2026",
+          "valor": 2536.99,
+          "tipoLancamento": "CONDOMINIO REF. 08/2026"
+        }
+      ]
     },
     {
       "pagador": "DANIEL MARQUES MEDEIROS PEREIRA",
       "qtd": 2,
-      "total": 7755.1
+      "total": 7755.1,
+      "transacoes": [
+        {
+          "data": "24/08/2026",
+          "valor": 1921.59,
+          "tipoLancamento": "CONDOMINIO REF. 08/2026"
+        },
+        {
+          "data": "24/08/2026",
+          "valor": 5833.51,
+          "tipoLancamento": "ALUGUEL REF. 08/2026"
+        }
+      ]
     },
     {
       "pagador": "PEDRO VIEIRA BARBOSA",
       "qtd": 2,
-      "total": 7731.99
+      "total": 7731.99,
+      "transacoes": [
+        {
+          "data": "04/08/2026",
+          "valor": 2348.74,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": 5383.25,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "HELDER SILVA DE GÓES",
       "qtd": 2,
-      "total": 7714.47
+      "total": 7714.47,
+      "transacoes": [
+        {
+          "data": "05/08/2026",
+          "valor": 5805.0,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        },
+        {
+          "data": "05/08/2026",
+          "valor": 1909.47,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "SILVIO CELLI FILHO",
       "qtd": 2,
-      "total": 7647.86
+      "total": 7647.86,
+      "transacoes": [
+        {
+          "data": "10/08/2026",
+          "valor": 5805.0,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": 1842.86,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "LEILANE MAIOLINI MENDES",
       "qtd": 2,
-      "total": 7216.22
+      "total": 7216.22,
+      "transacoes": [
+        {
+          "data": "03/08/2026",
+          "valor": 1927.37,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": 5288.85,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "SILVIO JOSE PIAUHY FALCAO",
       "qtd": 2,
-      "total": 6989.57
+      "total": 6989.57,
+      "transacoes": [
+        {
+          "data": "11/08/2026",
+          "valor": 4159.5,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        },
+        {
+          "data": "11/08/2026",
+          "valor": 2830.07,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "ANDRE LUIZ DA SILVA LIRA",
       "qtd": 2,
-      "total": 6918.95
+      "total": 6918.95,
+      "transacoes": [
+        {
+          "data": "04/08/2026",
+          "valor": 4988.95,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": 1930.0,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "ANTÔNIO FÁBIO DANTAS FILHO",
       "qtd": 2,
-      "total": 6717.24
+      "total": 6717.24,
+      "transacoes": [
+        {
+          "data": "03/08/2026",
+          "valor": 4787.24,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": 1930.0,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "GUSTAVO MESSEDER DOS SANTOS DANTAS",
       "qtd": 2,
-      "total": 6149.42
+      "total": 6149.42,
+      "transacoes": [
+        {
+          "data": "03/08/2026",
+          "valor": 3924.04,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": 2225.38,
+          "tipoLancamento": "CONDOMINIO REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "TATO GALVÃO MORENO",
       "qtd": 1,
-      "total": 5686.34
+      "total": 5686.34,
+      "transacoes": [
+        {
+          "data": "27/08/2026",
+          "valor": 5686.34,
+          "tipoLancamento": "ALUGUEL REF. 08/2026"
+        }
+      ]
     },
     {
       "pagador": "MARIA DE FÁTIMA FIALHO ARAUJO CUNHA",
       "qtd": 1,
-      "total": 5378.09
+      "total": 5378.09,
+      "transacoes": [
+        {
+          "data": "03/08/2026",
+          "valor": 5378.09,
+          "tipoLancamento": "ALUGUEL REF. 07/2026"
+        }
+      ]
     },
     {
       "pagador": "Adriano Moura",
       "qtd": 1,
-      "total": 1200.0
+      "total": 1200.0,
+      "transacoes": [
+        {
+          "data": "07/08/2026",
+          "valor": 1200.0,
+          "tipoLancamento": "DEVOLUÇÃO DO PIX FEITO DUPLICADO"
+        }
+      ]
     }
   ],
   "condominioUnidades": [
     {
       "data": "05/08/2026",
       "unidade": "0003 MAR",
-      "valor": -2138.46
+      "valor": -2138.46,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "06/08/2026",
       "unidade": "0003 VENTO",
-      "valor": -1646.25
+      "valor": -1646.25,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "05/08/2026",
       "unidade": "0103 MAR",
-      "valor": -1652.69
+      "valor": -1652.69,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "04/08/2026",
       "unidade": "1004 LAGOA",
-      "valor": -2482.16
+      "valor": -2482.16,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "102 JARDIM",
-      "valor": -2336.6
+      "valor": -2336.6,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "1103 FLORES",
-      "valor": -1693.96
+      "valor": -1693.96,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "04/08/2026",
       "unidade": "1104 JARDIM",
-      "valor": -2482.16
+      "valor": -2482.16,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "05/08/2026",
       "unidade": "1104 LUA",
-      "valor": -1547.32
+      "valor": -1547.32,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "1104 NATUREZA",
-      "valor": -1620.79
+      "valor": -1620.79,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "06/08/2026",
       "unidade": "1201 VENTO",
-      "valor": -1731.08
+      "valor": -1731.08,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "05/08/2026",
       "unidade": "1203 MAR",
-      "valor": -1729.5
+      "valor": -1729.5,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "05/08/2026",
       "unidade": "1204 MAR",
-      "valor": -1549.25
+      "valor": -1549.25,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "1303 SOL",
-      "valor": -1579.77
+      "valor": -1579.77,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "04/08/2026",
       "unidade": "1304 JARDIM",
-      "valor": -2232.99
+      "valor": -2232.99,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "06/08/2026",
       "unidade": "1304 VENTO",
-      "valor": -1731.08
+      "valor": -1731.08,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "1401 FLORES",
-      "valor": -1759.78
+      "valor": -1759.78,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "04/08/2026",
       "unidade": "1401 JARDIM",
-      "valor": -3153.15
+      "valor": -3153.15,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "1402 FLORES",
-      "valor": -1607.12
+      "valor": -1607.12,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "04/08/2026",
       "unidade": "1402 LAGOA",
-      "valor": -3033.15
+      "valor": -3033.15,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "05/08/2026",
       "unidade": "1403 LUA",
-      "valor": -1547.32
+      "valor": -1547.32,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "1404 NATUREZA",
-      "valor": -1776.23
+      "valor": -1776.23,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "06/08/2026",
       "unidade": "204 VENTO",
-      "valor": -1716.16
+      "valor": -1716.16,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "04/08/2026",
       "unidade": "402 JARDIM",
-      "valor": -2482.16
+      "valor": -2482.16,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "04/08/2026",
       "unidade": "404 JARDIM",
-      "valor": -2232.99
+      "valor": -2232.99,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "06/08/2026",
       "unidade": "504 VENTO",
-      "valor": -1586.66
+      "valor": -1586.66,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "603 SOL",
-      "valor": -1635.43
+      "valor": -1635.43,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "604 FLORES",
-      "valor": -1759.78
+      "valor": -1759.78,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "04/08/2026",
       "unidade": "703 LAGOA",
-      "valor": -2421.65
+      "valor": -2421.65,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     },
     {
       "data": "03/08/2026",
       "unidade": "903 SOL",
-      "valor": -1963.67
+      "valor": -1963.67,
+      "tipoLancamento": "PAGAMENTO DO CONDOMINIO PQT - SOLUÇÃO E CIA - 08/2026"
     }
   ],
   "outrosPagamentos": [
     {
       "data": "04/08/2026",
       "descricao": "Pagamento de conta",
-      "valor": -275.9
+      "valor": -275.9,
+      "tipoLancamento": "SITE ANUNCIOS LORENA"
     },
     {
       "data": "19/08/2026",
       "descricao": "Pagamento de conta - site anuncios 08/2026",
-      "valor": -216.0
+      "valor": -216.0,
+      "tipoLancamento": "SITE ANUNCIOS CHAVES NA MÃO - CHAVES IMOBILIARIA"
     },
     {
       "data": "27/08/2026",
       "descricao": "Pagamento de conta - anuncios imobiliarios 082026",
-      "valor": -481.42
+      "valor": -481.42,
+      "tipoLancamento": "SITE ANUNCIOS CANAL PRO - CHAVES IMOBILIARIA"
     }
   ],
   "pixSaidas": [
     {
       "destinatario": "LORENA MARIA CIDADE LINS DE ALBUQUERQUE",
       "qtd": 19,
-      "total": -73000.0
+      "total": -73000.0,
+      "transacoes": [
+        {
+          "data": "02/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "05/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "05/08/2026",
+          "valor": -12000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": -10000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "11/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "13/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "16/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "17/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "18/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "23/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "26/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "28/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "29/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "30/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        },
+        {
+          "data": "31/08/2026",
+          "valor": -3000.0,
+          "tipoLancamento": "APORTE DMEVAL"
+        }
+      ]
     },
     {
       "destinatario": "INIS MASCARENHAS CHAVES",
       "qtd": 1,
-      "total": -12000.0
+      "total": -12000.0,
+      "transacoes": [
+        {
+          "data": "29/08/2026",
+          "valor": -12000.0,
+          "tipoLancamento": "PAGAMENTO INIS"
+        }
+      ]
     },
     {
       "destinatario": "49.840.197 DMEVAL DA COSTA CHAVES NETO",
       "qtd": 1,
-      "total": -12000.0
+      "total": -12000.0,
+      "transacoes": [
+        {
+          "data": "30/08/2026",
+          "valor": -12000.0,
+          "tipoLancamento": "PAGAMENTO NETO"
+        }
+      ]
     },
     {
       "destinatario": "José Carlos dos Santos",
       "qtd": 4,
-      "total": -5806.0
+      "total": -5806.0,
+      "transacoes": [
+        {
+          "data": "07/08/2026",
+          "valor": -1340.0,
+          "tipoLancamento": "Manutenção das esquadrias e vidros 1402 LAGOA - manutenção do Reiki, janelão e portas de vidro, troca de roldanas do box de 2 suítes"
+        },
+        {
+          "data": "12/08/2026",
+          "valor": -856.0,
+          "tipoLancamento": "REQUALIFICAÇÃO - COMPRA E INSTALAÇÃO DE 2 ESPELHOS PARA A UNIDADE 1402 LAGOA - REQUALIFICAÇÃO DA UNIDADE"
+        },
+        {
+          "data": "20/08/2026",
+          "valor": -360.0,
+          "tipoLancamento": "MANUTENÇÃO E TROCA DE 04 ROLDANAS DOS BOXS 1403 LUA"
+        },
+        {
+          "data": "26/08/2026",
+          "valor": -3250.0,
+          "tipoLancamento": "Pagamento 50% final reiki 1401 FLORES"
+        }
+      ]
     },
     {
       "destinatario": "CARLOS ANTONIO SALES",
       "qtd": 1,
-      "total": -3900.0
+      "total": -3900.0,
+      "transacoes": [
+        {
+          "data": "05/08/2026",
+          "valor": -3900.0,
+          "tipoLancamento": "REQUALIFICAÇÃO DA UNIDADE 1402 LAGOA - MÃO DE OBRA PEDREIRO, HIDRÁULICA E LIMPEZA DE PISOS"
+        }
+      ]
     },
     {
       "destinatario": "Adriano Moura",
       "qtd": 2,
-      "total": -2300.0
+      "total": -2300.0,
+      "transacoes": [
+        {
+          "data": "07/08/2026",
+          "valor": -1200.0,
+          "tipoLancamento": "PIX FEITO DUPLICADO PARA O MARCENEIRO"
+        },
+        {
+          "data": "27/08/2026",
+          "valor": -1100.0,
+          "tipoLancamento": "60% INICIAIS DO TOTAL 2.800 REF A REPAROS MARCENARIA 204 VENTO DANIFICADOS NA DEVOLUÇÃO DO IMOVEL. VALOR A SER ABATIDO NA DEV. DA CAUÇÃO."
+        }
+      ]
     },
     {
       "destinatario": "Romario Teles Freire",
       "qtd": 1,
-      "total": -870.0
+      "total": -870.0,
+      "transacoes": [
+        {
+          "data": "13/08/2026",
+          "valor": -870.0,
+          "tipoLancamento": "Lagoa 1402 - Troca de todos os ganchos e corda, Instalação de rede na área da cozinha, na área da piscina e na parte debaixo da jardineira."
+        }
+      ]
     },
     {
       "destinatario": "LUCAS DE SOUZA PEREIRA",
       "qtd": 2,
-      "total": -800.0
+      "total": -800.0,
+      "transacoes": [
+        {
+          "data": "07/08/2026",
+          "valor": -300.0,
+          "tipoLancamento": "FAXINA PÓS OBRA 1403 LUA - ELIANA DE SOUZA"
+        },
+        {
+          "data": "21/08/2026",
+          "valor": -500.0,
+          "tipoLancamento": "LIMPEZA PÓS OBRA 1402 LAGOA 306M2"
+        }
+      ]
     },
     {
       "destinatario": "64.062.874 JOAO PAULO CARVALHO MIRANDA",
       "qtd": 2,
-      "total": -789.0
+      "total": -789.0,
+      "transacoes": [
+        {
+          "data": "13/08/2026",
+          "valor": -339.0,
+          "tipoLancamento": "VISTORIA DE SAÍDA 204 VENTO VISTORIA DE ENTRADA 1403 LUA"
+        },
+        {
+          "data": "19/08/2026",
+          "valor": -450.0,
+          "tipoLancamento": "VISTORIA DE ENTRADA UNIDADE 1402 LAGOA INQUILINO RAFAEL DE BRITO"
+        }
+      ]
     },
     {
       "destinatario": "Diego Almeida Dos Reis",
       "qtd": 2,
-      "total": -450.0
+      "total": -450.0,
+      "transacoes": [
+        {
+          "data": "07/08/2026",
+          "valor": -250.0,
+          "tipoLancamento": "MANUTENÇÃO DA PISCINA 1402 LAGOA 08/2026"
+        },
+        {
+          "data": "28/08/2026",
+          "valor": -200.0,
+          "tipoLancamento": "TROCA DOS ROLAMENTOS MANUTENÇÃO DA BOMBA DA PISCINA 1402 LAGOA"
+        }
+      ]
     },
     {
       "destinatario": "38.237.858 MARCELO SANTOS SOUZA",
       "qtd": 1,
-      "total": -450.0
+      "total": -450.0,
+      "transacoes": [
+        {
+          "data": "13/08/2026",
+          "valor": -450.0,
+          "tipoLancamento": "RETIRADA DE 3 MAQUINAS DE AR-CONDICIONADO DANIFICADOS DA UNIDADE 1403 LUA"
+        }
+      ]
     },
     {
       "destinatario": "EDINALDO SANTOS CRUZ",
       "qtd": 1,
-      "total": -430.0
+      "total": -430.0,
+      "transacoes": [
+        {
+          "data": "27/08/2026",
+          "valor": -430.0,
+          "tipoLancamento": "MANUTENÇÃO E TROCA DE PEÇAS DAS BOMBAS DA PISCINA 1402 LAGOA"
+        }
+      ]
     },
     {
       "destinatario": "ROBERT SILVA SANTOS",
       "qtd": 2,
-      "total": -320.0
+      "total": -320.0,
+      "transacoes": [
+        {
+          "data": "19/08/2026",
+          "valor": -90.0,
+          "tipoLancamento": "REPAROS INSTALAÇÃO ELÉTRICA UNIDADE 1402 LAGOA"
+        },
+        {
+          "data": "21/08/2026",
+          "valor": -230.0,
+          "tipoLancamento": "Reparos Elétricos unidades 003 Vento e 1403 Lua"
+        }
+      ]
     },
     {
       "destinatario": "Iure Kauan Dias Veloso da Silva",
       "qtd": 1,
-      "total": -100.0
+      "total": -100.0,
+      "transacoes": [
+        {
+          "data": "04/08/2026",
+          "valor": -100.0,
+          "tipoLancamento": "MOTOBOY CONTRATOS"
+        }
+      ]
     },
     {
       "destinatario": "Oriosvaldo da Conceição",
       "qtd": 1,
-      "total": -30.0
+      "total": -30.0,
+      "transacoes": [
+        {
+          "data": "31/08/2026",
+          "valor": -30.0,
+          "tipoLancamento": "SERVIÇOS ELÉTRICOS - RETIRADA DO LUSTRE E INSTALAÇÃO DA LUMINARIA PLAFON DE EEMBUTIR 1304 VENTO"
+        }
+      ]
     }
   ],
   "taxas": {
     "boleto": {
       "qtd": 29,
-      "total": -57.71
+      "total": -57.71,
+      "transacoes": [
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "03/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "04/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "05/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "05/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "10/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "11/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "11/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "20/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "20/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "24/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "24/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "27/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "28/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        },
+        {
+          "data": "28/08/2026",
+          "valor": -1.99,
+          "tipoLancamento": "TAXA BOLETO"
+        }
+      ]
     },
     "asaas": {
       "qtd": 1,
-      "total": -99.9
+      "total": -99.9,
+      "transacoes": [
+        {
+          "data": "06/08/2026",
+          "valor": -99.9,
+          "tipoLancamento": "MENSALIDADE ASAAS"
+        }
+      ]
     },
     "serasa": [
       {

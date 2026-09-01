@@ -53,6 +53,16 @@ def load_rows(path):
         raise ValueError("Não encontrei a linha de cabeçalho ('Data', 'Transação', ...) no CSV.")
 
     header = [h.strip() for h in reader[header_idx]]
+    # O Asaas exporta uma coluna chamada "Tipo do lançamento" cujo valor é só
+    # "Débito"/"Crédito" (redundante com o sinal de "Valor"). O texto descritivo
+    # rico que é anotado manualmente por transação (ex. "APORTE DMEVAL") fica na
+    # coluna seguinte, que vem sem nome no CSV exportado. Nomeamos essa coluna
+    # para não perdê-la: colunas sem nome colidiriam todas na mesma chave "" ao
+    # montar o dict abaixo, e a última venceria (normalmente vazia).
+    if "Tipo do lançamento" in header:
+        idx = header.index("Tipo do lançamento")
+        if idx + 1 < len(header) and not header[idx + 1]:
+            header[idx + 1] = "Descrição detalhada"
     rows = []
     for row in reader[header_idx + 1:]:
         if not row or all(not c.strip() for c in row):
@@ -106,12 +116,12 @@ def analisar(path):
     total_credito = sum(v for v in valores if v > 0)
     total_debito = sum(v for v in valores if v < 0)
 
-    cobrancas = defaultdict(lambda: {"total": 0.0, "qtd": 0})
+    cobrancas = defaultdict(lambda: {"total": 0.0, "qtd": 0, "transacoes": []})
     condominio_unidades = []
     outros_pagamentos = []
-    pix_saidas = defaultdict(lambda: {"total": 0.0, "qtd": 0})
-    taxas_boleto = {"total": 0.0, "qtd": 0}
-    taxa_asaas = {"total": 0.0, "qtd": 0}
+    pix_saidas = defaultdict(lambda: {"total": 0.0, "qtd": 0, "transacoes": []})
+    taxas_boleto = {"total": 0.0, "qtd": 0, "transacoes": []}
+    taxa_asaas = {"total": 0.0, "qtd": 0, "transacoes": []}
     serasa = []
     estornadas = []
     outros_tipos = defaultdict(lambda: {"total": 0.0, "qtd": 0})
@@ -126,6 +136,8 @@ def analisar(path):
         tipo = (t.get("Tipo de transação") or "").strip()
         desc = (t.get("Descrição") or "").strip()
         valor = parse_valor(t["Valor"])
+        data = t.get("Data")
+        tipo_lancamento = (t.get("Descrição detalhada") or "").strip()
         estorno = (t.get("Transação estornada") or "").strip()
         if estorno:
             estornadas.append(t)
@@ -135,23 +147,27 @@ def analisar(path):
             nome = m.group(1).strip() if m else (desc or "(sem descrição)")
             cobrancas[nome]["total"] += valor
             cobrancas[nome]["qtd"] += 1
+            cobrancas[nome]["transacoes"].append({"data": data, "valor": valor, "tipo_lancamento": tipo_lancamento})
         elif tipo == "Pagamento de conta":
             m = UNIDADE_RE.search(desc)
             if m:
-                condominio_unidades.append({"unidade": m.group(1).strip(), "valor": valor, "data": t.get("Data")})
+                condominio_unidades.append({"unidade": m.group(1).strip(), "valor": valor, "data": data, "tipo_lancamento": tipo_lancamento})
             else:
-                outros_pagamentos.append({"descricao": desc or "Pagamento de conta (sem descrição)", "valor": valor, "data": t.get("Data")})
+                outros_pagamentos.append({"descricao": desc or "Pagamento de conta (sem descrição)", "valor": valor, "data": data, "tipo_lancamento": tipo_lancamento})
         elif tipo == "Transação via Pix":
             m = PIX_RE.search(desc)
             nome = m.group(1).strip() if m else (desc or "(sem descrição)")
             pix_saidas[nome]["total"] += valor
             pix_saidas[nome]["qtd"] += 1
+            pix_saidas[nome]["transacoes"].append({"data": data, "valor": valor, "tipo_lancamento": tipo_lancamento})
         elif tipo == "Taxa de boleto, cartão ou Pix":
             taxas_boleto["total"] += valor
             taxas_boleto["qtd"] += 1
+            taxas_boleto["transacoes"].append({"data": data, "valor": valor, "tipo_lancamento": tipo_lancamento})
         elif tipo == "Taxa da mensalidade do plano Asaas":
             taxa_asaas["total"] += valor
             taxa_asaas["qtd"] += 1
+            taxa_asaas["transacoes"].append({"data": data, "valor": valor, "tipo_lancamento": tipo_lancamento})
         elif tipo == "Taxa de consulta Serasa":
             m = SERASA_RE.search(desc)
             serasa.append({
@@ -309,24 +325,54 @@ def to_dict(a):
         "totalDebito": round(a["total_debito"], 2),
         "qtdTransacoes": a["qtd_transacoes"],
         "cobrancas": [
-            {"pagador": nome, "qtd": v["qtd"], "total": round(v["total"], 2)}
+            {
+                "pagador": nome,
+                "qtd": v["qtd"],
+                "total": round(v["total"], 2),
+                "transacoes": [
+                    {"data": tr["data"], "valor": round(tr["valor"], 2), "tipoLancamento": tr["tipo_lancamento"]}
+                    for tr in v["transacoes"]
+                ],
+            }
             for nome, v in sorted(a["cobrancas"].items(), key=lambda kv: -kv[1]["total"])
         ],
         "condominioUnidades": [
-            {"data": u["data"], "unidade": u["unidade"], "valor": round(u["valor"], 2)}
+            {"data": u["data"], "unidade": u["unidade"], "valor": round(u["valor"], 2), "tipoLancamento": u["tipo_lancamento"]}
             for u in sorted(a["condominio_unidades"], key=lambda u: u["unidade"])
         ],
         "outrosPagamentos": [
-            {"data": p["data"], "descricao": p["descricao"], "valor": round(p["valor"], 2)}
+            {"data": p["data"], "descricao": p["descricao"], "valor": round(p["valor"], 2), "tipoLancamento": p["tipo_lancamento"]}
             for p in a["outros_pagamentos"]
         ],
         "pixSaidas": [
-            {"destinatario": nome, "qtd": v["qtd"], "total": round(v["total"], 2)}
+            {
+                "destinatario": nome,
+                "qtd": v["qtd"],
+                "total": round(v["total"], 2),
+                "transacoes": [
+                    {"data": tr["data"], "valor": round(tr["valor"], 2), "tipoLancamento": tr["tipo_lancamento"]}
+                    for tr in v["transacoes"]
+                ],
+            }
             for nome, v in sorted(a["pix_saidas"].items(), key=lambda kv: kv[1]["total"])
         ],
         "taxas": {
-            "boleto": {"qtd": a["taxas_boleto"]["qtd"], "total": round(a["taxas_boleto"]["total"], 2)},
-            "asaas": {"qtd": a["taxa_asaas"]["qtd"], "total": round(a["taxa_asaas"]["total"], 2)},
+            "boleto": {
+                "qtd": a["taxas_boleto"]["qtd"],
+                "total": round(a["taxas_boleto"]["total"], 2),
+                "transacoes": [
+                    {"data": tr["data"], "valor": round(tr["valor"], 2), "tipoLancamento": tr["tipo_lancamento"]}
+                    for tr in a["taxas_boleto"]["transacoes"]
+                ],
+            },
+            "asaas": {
+                "qtd": a["taxa_asaas"]["qtd"],
+                "total": round(a["taxa_asaas"]["total"], 2),
+                "transacoes": [
+                    {"data": tr["data"], "valor": round(tr["valor"], 2), "tipoLancamento": tr["tipo_lancamento"]}
+                    for tr in a["taxa_asaas"]["transacoes"]
+                ],
+            },
             "serasa": [
                 {"data": s["data"], "tipo": s["tipo"], "documento": s["doc"], "valor": round(s["valor"], 2)}
                 for s in a["serasa"]

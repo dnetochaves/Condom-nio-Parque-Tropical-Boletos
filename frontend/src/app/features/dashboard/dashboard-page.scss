@@ -67,9 +67,10 @@
 
 .linha {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 10px;
+  gap: 2px 10px;
   padding: 8px 0;
   border-bottom: 1px solid var(--mat-sys-outline-variant);
   font: var(--mat-sys-body-medium);
@@ -94,6 +95,41 @@
 .linha__valor {
   font-weight: 600;
   white-space: nowrap;
+}
+
+.linha__tipo {
+  flex: 1 1 100%;
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-small);
+  overflow-wrap: anywhere;
+}
+
+.grupo {
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+.grupo:last-child {
+  border-bottom: none;
+}
+
+.grupo .linha--grupo {
+  border-bottom: none;
+}
+
+.sub-lista {
+  padding: 0 0 8px 12px;
+  margin-left: 2px;
+  border-left: 2px solid var(--mat-sys-outline-variant);
+}
+
+.linha--sub {
+  border-bottom: none;
+  padding: 4px 0;
+  font: var(--mat-sys-body-small);
+}
+
+.linha--sub .linha__valor {
+  font-weight: 500;
 }
 
 @media (min-width: 600px) {

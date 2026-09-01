@@ -1,30 +1,41 @@
+export interface TransacaoDetalhe {
+  data: string;
+  valor: number;
+  tipoLancamento: string;
+}
+
 export interface CobrancaResumo {
   pagador: string;
   qtd: number;
   total: number;
+  transacoes: TransacaoDetalhe[];
 }
 
 export interface CondominioUnidade {
   data: string;
   unidade: string;
   valor: number;
+  tipoLancamento: string;
 }
 
 export interface OutroPagamento {
   data: string;
   descricao: string;
   valor: number;
+  tipoLancamento: string;
 }
 
 export interface PixDestinatario {
   destinatario: string;
   qtd: number;
   total: number;
+  transacoes: TransacaoDetalhe[];
 }
 
 export interface TaxaResumo {
   qtd: number;
   total: number;
+  transacoes: TransacaoDetalhe[];
 }
 
 export interface SerasaConsulta {

@@ -45,10 +45,23 @@
           <mat-panel-description>{{ v.d.cobrancas.length }} pagadores · {{ brl(v.totais.cobrancas) }}</mat-panel-description>
         </mat-expansion-panel-header>
         @for (c of v.d.cobrancas; track c.pagador) {
-          <div class="linha">
-            <span class="linha__nome">{{ c.pagador }}</span>
-            <span class="linha__meta">{{ c.qtd }}x</span>
-            <span class="linha__valor">{{ brl(c.total) }}</span>
+          <div class="grupo">
+            <div class="linha linha--grupo">
+              <span class="linha__nome">{{ c.pagador }}</span>
+              <span class="linha__meta">{{ c.qtd }}x</span>
+              <span class="linha__valor">{{ brl(c.total) }}</span>
+            </div>
+            <div class="sub-lista">
+              @for (t of c.transacoes; track t.data + t.valor + t.tipoLancamento) {
+                <div class="linha linha--sub">
+                  <span class="linha__nome">{{ t.data }}</span>
+                  <span class="linha__valor">{{ brl(t.valor) }}</span>
+                  @if (t.tipoLancamento) {
+                    <span class="linha__tipo">{{ t.tipoLancamento }}</span>
+                  }
+                </div>
+              }
+            </div>
           </div>
         }
       </mat-expansion-panel>
@@ -63,6 +76,9 @@
             <span class="linha__nome">{{ u.unidade }}</span>
             <span class="linha__meta">{{ u.data }}</span>
             <span class="linha__valor">{{ brl(u.valor) }}</span>
+            @if (u.tipoLancamento) {
+              <span class="linha__tipo">{{ u.tipoLancamento }}</span>
+            }
           </div>
         }
       </mat-expansion-panel>
@@ -78,6 +94,9 @@
               <span class="linha__nome">{{ p.descricao }}</span>
               <span class="linha__meta">{{ p.data }}</span>
               <span class="linha__valor">{{ brl(p.valor) }}</span>
+              @if (p.tipoLancamento) {
+                <span class="linha__tipo">{{ p.tipoLancamento }}</span>
+              }
             </div>
           }
         </mat-expansion-panel>
@@ -89,10 +108,23 @@
           <mat-panel-description>{{ v.d.pixSaidas.length }} destinatários · {{ brl(v.totais.pix) }}</mat-panel-description>
         </mat-expansion-panel-header>
         @for (p of v.d.pixSaidas; track p.destinatario) {
-          <div class="linha">
-            <span class="linha__nome">{{ p.destinatario }}</span>
-            <span class="linha__meta">{{ p.qtd }}x</span>
-            <span class="linha__valor">{{ brl(p.total) }}</span>
+          <div class="grupo">
+            <div class="linha linha--grupo">
+              <span class="linha__nome">{{ p.destinatario }}</span>
+              <span class="linha__meta">{{ p.qtd }}x</span>
+              <span class="linha__valor">{{ brl(p.total) }}</span>
+            </div>
+            <div class="sub-lista">
+              @for (t of p.transacoes; track t.data + t.valor + t.tipoLancamento) {
+                <div class="linha linha--sub">
+                  <span class="linha__nome">{{ t.data }}</span>
+                  <span class="linha__valor">{{ brl(t.valor) }}</span>
+                  @if (t.tipoLancamento) {
+                    <span class="linha__tipo">{{ t.tipoLancamento }}</span>
+                  }
+                </div>
+              }
+            </div>
           </div>
         }
       </mat-expansion-panel>
@@ -102,15 +134,41 @@
           <mat-panel-title>Taxas da plataforma</mat-panel-title>
           <mat-panel-description>{{ brl(v.totais.taxas) }}</mat-panel-description>
         </mat-expansion-panel-header>
-        <div class="linha">
-          <span class="linha__nome">Taxas de boleto/cartão/Pix</span>
-          <span class="linha__meta">{{ v.d.taxas.boleto.qtd }}x</span>
-          <span class="linha__valor">{{ brl(v.d.taxas.boleto.total) }}</span>
+        <div class="grupo">
+          <div class="linha linha--grupo">
+            <span class="linha__nome">Taxas de boleto/cartão/Pix</span>
+            <span class="linha__meta">{{ v.d.taxas.boleto.qtd }}x</span>
+            <span class="linha__valor">{{ brl(v.d.taxas.boleto.total) }}</span>
+          </div>
+          <div class="sub-lista">
+            @for (t of v.d.taxas.boleto.transacoes; track t.data + t.valor + t.tipoLancamento) {
+              <div class="linha linha--sub">
+                <span class="linha__nome">{{ t.data }}</span>
+                <span class="linha__valor">{{ brl(t.valor) }}</span>
+                @if (t.tipoLancamento) {
+                  <span class="linha__tipo">{{ t.tipoLancamento }}</span>
+                }
+              </div>
+            }
+          </div>
         </div>
-        <div class="linha">
-          <span class="linha__nome">Mensalidade do plano Asaas</span>
-          <span class="linha__meta">{{ v.d.taxas.asaas.qtd }}x</span>
-          <span class="linha__valor">{{ brl(v.d.taxas.asaas.total) }}</span>
+        <div class="grupo">
+          <div class="linha linha--grupo">
+            <span class="linha__nome">Mensalidade do plano Asaas</span>
+            <span class="linha__meta">{{ v.d.taxas.asaas.qtd }}x</span>
+            <span class="linha__valor">{{ brl(v.d.taxas.asaas.total) }}</span>
+          </div>
+          <div class="sub-lista">
+            @for (t of v.d.taxas.asaas.transacoes; track t.data + t.valor + t.tipoLancamento) {
+              <div class="linha linha--sub">
+                <span class="linha__nome">{{ t.data }}</span>
+                <span class="linha__valor">{{ brl(t.valor) }}</span>
+                @if (t.tipoLancamento) {
+                  <span class="linha__tipo">{{ t.tipoLancamento }}</span>
+                }
+              </div>
+            }
+          </div>
         </div>
         @for (s of v.d.taxas.serasa; track s.documento + s.data) {
           <div class="linha">
