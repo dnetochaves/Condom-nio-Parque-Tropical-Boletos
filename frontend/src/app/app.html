@@ -3,23 +3,25 @@
     <router-outlet></router-outlet>
   </div>
 
-  <nav class="app-shell__nav">
-    <a
-      routerLink="/"
-      routerLinkActive="app-shell__nav-item--ativo"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="app-shell__nav-item"
-    >
-      <mat-icon>dashboard</mat-icon>
-      <span>Dashboard</span>
-    </a>
-    <a routerLink="/boletos" routerLinkActive="app-shell__nav-item--ativo" class="app-shell__nav-item">
-      <mat-icon>receipt_long</mat-icon>
-      <span>Boletos</span>
-    </a>
-    <a routerLink="/financeiro" routerLinkActive="app-shell__nav-item--ativo" class="app-shell__nav-item">
-      <mat-icon>bar_chart</mat-icon>
-      <span>Financeiro</span>
-    </a>
-  </nav>
+  @if (!emLogin()) {
+    <nav class="app-shell__nav">
+      <a
+        routerLink="/"
+        routerLinkActive="app-shell__nav-item--ativo"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="app-shell__nav-item"
+      >
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a routerLink="/boletos" routerLinkActive="app-shell__nav-item--ativo" class="app-shell__nav-item">
+        <mat-icon>receipt_long</mat-icon>
+        <span>Boletos</span>
+      </a>
+      <a routerLink="/financeiro" routerLinkActive="app-shell__nav-item--ativo" class="app-shell__nav-item">
+        <mat-icon>bar_chart</mat-icon>
+        <span>Financeiro</span>
+      </a>
+    </nav>
+  }
 </div>

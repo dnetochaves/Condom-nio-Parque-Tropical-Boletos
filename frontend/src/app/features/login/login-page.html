@@ -1,0 +1,26 @@
+<mat-toolbar class="cabecalho">
+  <span class="cabecalho__titulo">Acesso</span>
+</mat-toolbar>
+
+<main class="conteudo">
+  <p class="instrucao">
+    @if (mensagemInicial(); as msg) {
+      <span class="instrucao--aviso">{{ msg }}</span>
+    } @else {
+      <span>Digite o token de acesso que você recebeu para continuar.</span>
+    }
+  </p>
+
+  <mat-form-field appearance="outline" class="campo-token">
+    <mat-label>Token de acesso</mat-label>
+    <input matInput #campoToken (keyup.enter)="entrar(campoToken.value)" autocomplete="off" />
+  </mat-form-field>
+
+  @if (erro(); as msgErro) {
+    <p class="erro">{{ msgErro }}</p>
+  }
+
+  <button mat-flat-button color="primary" class="botao-entrar" (click)="entrar(campoToken.value)">
+    Entrar
+  </button>
+</main>

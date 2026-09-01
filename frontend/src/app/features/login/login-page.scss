@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.cabecalho {
+  height: auto;
+  padding: 12px 16px 14px;
+  background: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+
+.cabecalho__titulo {
+  font: var(--mat-sys-title-medium);
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 16px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.instrucao {
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+}
+
+.instrucao--aviso {
+  color: var(--mat-sys-error);
+}
+
+.campo-token {
+  width: 100%;
+}
+
+.erro {
+  color: var(--mat-sys-error);
+  font: var(--mat-sys-body-small);
+  margin: -4px 0 0;
+}
+
+.botao-entrar {
+  align-self: stretch;
+  min-height: 44px;
+}
