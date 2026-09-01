@@ -30,26 +30,50 @@
       </mat-card>
     </section>
 
-    <section class="grafico">
-      <h2 class="grafico__titulo">Repasses por unidade</h2>
-      @if (v.repassesPorUnidade.length) {
-        <div class="grafico__barras">
-          @for (item of v.repassesPorUnidade; track item.unidade) {
-            <div class="barra">
-              <div class="barra__cabecalho">
-                <span class="barra__rotulo">{{ item.unidade }}</span>
-                <span class="barra__valor">{{ brl(item.valor) }}</span>
-              </div>
-              <div class="barra__trilha">
-                <div class="barra__preenchimento" [style.width.%]="percentual(item.valor, v.maiorValor)"></div>
-              </div>
-            </div>
-          }
+    <mat-card class="bloco-grafico" appearance="outlined">
+      <h2 class="bloco-grafico__titulo">Para onde foi o dinheiro</h2>
+      <p class="bloco-grafico__descricao">Como as saídas do condomínio se dividem neste período.</p>
+      @if (v.resumoSaidas.length) {
+        <div class="rosca-container">
+          <div class="rosca" [style.background]="roscaGradiente(v.resumoSaidas)"></div>
+          <ul class="rosca-legenda">
+            @for (c of v.resumoSaidas; track c.categoria) {
+              <li class="rosca-legenda__item">
+                <span class="rosca-legenda__cor" [style.background]="c.cor"></span>
+                <span class="rosca-legenda__nome">{{ c.categoria }}</span>
+                <span class="rosca-legenda__valor">{{ brl(c.valor) }} · {{ arredondar(c.percentual) }}%</span>
+              </li>
+            }
+          </ul>
         </div>
       } @else {
-        <p class="grafico__vazio">Nenhum repasse por unidade registrado neste período.</p>
+        <p class="bloco-grafico__vazio">Nenhuma saída registrada neste período.</p>
       }
-    </section>
+    </mat-card>
+
+    @for (bloco of v.blocosBarras; track bloco.titulo) {
+      <mat-card class="bloco-grafico" appearance="outlined">
+        <h2 class="bloco-grafico__titulo">{{ bloco.titulo }}</h2>
+        <p class="bloco-grafico__descricao">{{ bloco.descricao }}</p>
+        @if (bloco.itens.length) {
+          <div class="grafico__barras">
+            @for (item of bloco.itens; track item.rotulo) {
+              <div class="barra">
+                <div class="barra__cabecalho">
+                  <span class="barra__rotulo">{{ item.rotulo }}</span>
+                  <span class="barra__valor">{{ brl(item.valor) }}</span>
+                </div>
+                <div class="barra__trilha">
+                  <div class="barra__preenchimento" [style.width.%]="percentual(item.valor, bloco.maiorValor)"></div>
+                </div>
+              </div>
+            }
+          </div>
+        } @else {
+          <p class="bloco-grafico__vazio">{{ bloco.mensagemVazia }}</p>
+        }
+      </mat-card>
+    }
   </main>
 } @else {
   <main class="conteudo conteudo--carregando">
