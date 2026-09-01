@@ -4,5 +4,5 @@ data/boletos.json
 data/extrato-financeiro.json
 favicon.ico
 index.html
-main-FUNMTDPN.js
+main-K3XNCI7W.js
 styles-OPUTW5UJ.css
