@@ -10,7 +10,7 @@ export class AcessoService {
   private readonly http = inject(HttpClient);
 
   private readonly acesso$: Observable<AcessoInfo> = this.http
-    .get<AcessoInfo>('data/acesso.json')
+    .get<AcessoInfo>(`data/acesso.json?t=${Date.now()}`)
     .pipe(shareReplay(1));
 
   carregar(): Observable<AcessoInfo> {
