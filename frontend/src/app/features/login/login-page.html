@@ -13,7 +13,15 @@
 
   <mat-form-field appearance="outline" class="campo-token">
     <mat-label>Token de acesso</mat-label>
-    <input matInput #campoToken (keyup.enter)="entrar(campoToken.value)" autocomplete="off" />
+    <input
+      matInput
+      #campoToken
+      (keyup.enter)="entrar(campoToken.value)"
+      autocomplete="off"
+      autocapitalize="off"
+      autocorrect="off"
+      spellcheck="false"
+    />
   </mat-form-field>
 
   @if (erro(); as msgErro) {
