@@ -6,4 +6,5 @@ data/extrato-financeiro.json
 favicon.ico
 index.html
 main-TKUJHVC3.js
+reajustes.html
 styles-OPUTW5UJ.css
