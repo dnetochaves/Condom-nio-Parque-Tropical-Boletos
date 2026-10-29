@@ -31,7 +31,15 @@ formato limpo). O layout se repete mês a mês, então a extração é mecânica
    python3 .claude/skills/atualizar-boletos-mensais/scripts/extract_boletos.py "<caminho-do-pdf>" > frontend/public/data/boletos.json
    ```
    Se faltar a dependência, ele avisa para rodar `pip3 install pdfplumber` —
-   instale e rode de novo. O script já escreve o JSON final no formato
+   instale e rode de novo. Se o PDF vier só como imagem (sem camada de texto,
+   como em novembro/2026), o script usa OCR automaticamente e, se faltar, pede
+   `pip3 install rapidocr-onnxruntime pymupdf`. No modo OCR cada linha
+   digitável é validada pelos dígitos verificadores e o script recusa (com
+   aviso) qualquer leitura que não confira, em vez de gravar dígito errado.
+   Atenção: o `>` esvazia o `boletos.json` antes de o script rodar; se ele
+   sair com erro, restaure com `git checkout frontend/public/data/boletos.json`
+   antes de continuar. Dica: na dúvida, grave primeiro num arquivo temporário
+   e só copie para `frontend/public/data/boletos.json` depois de conferir. O script já escreve o JSON final no formato
    `{ mes, condominio, pagador, vencimento, banco, boletos: [...] }` — não
    edite esse arquivo manualmente. No stderr (visível no terminal) vem uma
    linha de resumo com total de boletos, vencimento e valor total, além de
@@ -69,7 +77,13 @@ formato limpo). O layout se repete mês a mês, então a extração é mecânica
 
 ## Notas sobre o formato do PDF
 
-Os regexes do script assumem estes trechos fixos do layout do banco 481-2:
+O PDF já veio de dois jeitos: com camada de texto (agosto a outubro/2026) e só
+como imagem (novembro/2026, layout "Superlógica"). O script detecta sozinho,
+página a página. Nos dois casos ele confere valor e vencimento contra os
+embutidos na própria linha digitável (valor nos 10 últimos dígitos, fator de
+vencimento nos 4 anteriores).
+
+No modo texto, os regexes assumem estes trechos fixos do layout do banco 481-2:
 - `Unidade:XX 9999` (duas letras + até 4 dígitos, com ou sem espaço)
 - bloco `Data Docto.` seguido por `Número Documento` na linha seguinte
 - linha digitável no formato `48190.00003 00495.890568 66678.170144 5 15290000154732`
